@@ -84,12 +84,43 @@
             color: inherit;
         }
 
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 241, 89, 0.2);
+        }
+
+        .product-card.coming-soon {
+            border: 1px dashed #444;
+            background: #151a21;
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+        
+        .product-card.coming-soon:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
         .product-img-wrapper {
             width: 100%;
             height: 250px;
             background: #2b3a4a;
             position: relative;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover:not(.coming-soon) .product-img {
+            transform: scale(1.05);
         }
 
         .product-info {
@@ -106,6 +137,9 @@
             color: #fff;
             height: 50px;
             overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
         }
 
         .product-desc {
@@ -114,20 +148,35 @@
             margin-bottom: 15px;
             height: 40px;
             overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        .price-container {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .old-price {
+            font-size: 0.9rem;
+            color: #888;
+            text-decoration: line-through;
         }
 
         .product-price {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: bold;
             color: #fff159;
-            margin-bottom: 15px;
         }
 
         .btn-buy {
             display: block;
             text-align: center;
             background: #fff159;
-            color: #2d3277;
+            color: #333;
             text-decoration: none;
             padding: 12px;
             border-radius: 8px;
@@ -135,67 +184,54 @@
             transition: 0.3s;
             margin-top: auto;
         }
+
+        .btn-buy:hover { background: #fff58f; }
         
-        /* Estilo pontilhado para as vagas vazias */
-        .empty-card {
-            border: 1px dashed #45a29e;
-            opacity: 0.5;
-        }
-        .empty-card .btn-buy {
-            background: #45a29e;
-            color: #ffffff;
+        .btn-soon {
+            background: #333;
+            color: #777;
+            cursor: not-allowed;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="primeira.html" class="logo-title">STARS <span>VENDAS</span> 🌟</a>
+        <a href="index.html" class="logo-title">STARS <span>VENDAS</span> 🌟</a>
     </header>
 
     <div class="container">
-        <a href="primeira.html" class="back-link">⬅️ Voltar para o Início</a>
+        <a href="index.html" class="back-link">⬅️ Voltar para o Início</a>
         
         <h1>Melhores Produtos do <span>Mercado Livre</span></h1>
 
         <div class="products-grid">
             
-            <!-- VAGA PARA O PRODUTO 1 -->
-            <div class="product-card empty-card">
-                <div class="product-img-wrapper" style="display:flex; align-items:center; justify-content:center; color:#45a29e;">
-                    Aguardando Produto 1...
-                </div>
+            <!-- SLOT 1 EXEMPLO -->
+            <div class="product-card coming-soon">
+                <div class="product-img-wrapper"><span style="font-size: 3rem;">📦</span></div>
                 <div class="product-info">
-                    <div class="product-title" style="color:#45a29e;">Próximo Achadinho do ML</div>
-                    <div class="product-desc">Envie o link e os detalhes para atualizar este produto.</div>
-                    <div class="product-price" style="color:#45a29e;">R$ 00,00</div>
-                    <div class="btn-buy" style="cursor:default;">Em Breve 🕒</div>
+                    <div class="product-title">Primeira Oferta do Mercado Livre...</div>
+                    <div class="product-desc">Mande o link e a foto do produto para começarmos a preencher esta aba!</div>
+                    <div class="price-container">
+                        <span class="old-price">De: R$ --,--</span>
+                        <span class="product-price">Por: R$ --,--</span>
+                    </div>
+                    <div class="btn-buy btn-soon">Em Breve 🕒</div>
                 </div>
             </div>
 
-            <!-- VAGA PARA O PRODUTO 2 -->
-            <div class="product-card empty-card">
-                <div class="product-img-wrapper" style="display:flex; align-items:center; justify-content:center; color:#45a29e;">
-                    Aguardando Produto 2...
-                </div>
+            <!-- SLOT 2 EXEMPLO -->
+            <div class="product-card coming-soon">
+                <div class="product-img-wrapper"><span style="font-size: 3rem;">📦</span></div>
                 <div class="product-info">
-                    <div class="product-title" style="color:#45a29e;">Próximo Achadinho do ML</div>
-                    <div class="product-desc">Envie o link e os detalhes para atualizar este produto.</div>
-                    <div class="product-price" style="color:#45a29e;">R$ 00,00</div>
-                    <div class="btn-buy" style="cursor:default;">Em Breve 🕒</div>
-                </div>
-            </div>
-
-            <!-- VAGA PARA O PRODUTO 3 -->
-            <div class="product-card empty-card">
-                <div class="product-img-wrapper" style="display:flex; align-items:center; justify-content:center; color:#45a29e;">
-                    Aguardando Produto 3...
-                </div>
-                <div class="product-info">
-                    <div class="product-title" style="color:#45a29e;">Próximo Achadinho do ML</div>
-                    <div class="product-desc">Envie o link e os detalhes para atualizar este produto.</div>
-                    <div class="product-price" style="color:#45a29e;">R$ 00,00</div>
-                    <div class="btn-buy" style="cursor:default;">Em Breve 🕒</div>
+                    <div class="product-title">Segunda Oferta do Mercado Livre...</div>
+                    <div class="product-desc">Estamos escolhendo a melhor oferta com o maior desconto para você!</div>
+                    <div class="price-container">
+                        <span class="old-price">De: R$ --,--</span>
+                        <span class="product-price">Por: R$ --,--</span>
+                    </div>
+                    <div class="btn-buy btn-soon">Em Breve 🕒</div>
                 </div>
             </div>
 
