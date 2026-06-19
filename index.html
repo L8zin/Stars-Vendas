@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stars Vendas - Os Melhores Produtos</title>
+    <title>Stars Vendas - Início</title>
     <style>
         * {
             margin: 0;
@@ -15,304 +15,124 @@
         body {
             background-color: #0b0c10;
             color: #ffffff;
-            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
-        /* Fundo de Estrelas Animado Simples via CSS */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 50% 50%, #1f2833 0%, #0b0c10 100%);
-            z-index: -2;
-        }
-
-        /* Header / Topo */
         header {
             background: rgba(11, 12, 16, 0.85);
             backdrop-filter: blur(10px);
-            border-bottom: 2px solid #66fcf1;
+            border-bottom: 2px solid #ee4d2d;
             padding: 20px;
             text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
         }
 
         .logo-title {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 800;
-            color: #66fcf1;
-            text-shadow: 0 0 15px rgba(102, 252, 241, 0.6);
-            letter-spacing: 2px;
+            color: #ee4d2d;
+            text-shadow: 0 0 15px rgba(238, 77, 45, 0.4);
+            text-decoration: none;
         }
 
-        .logo-title span {
-            color: #fff;
-        }
+        .logo-title span { color: #fff; }
 
-        /* Seção Hero (Chamada Principal) */
-        .hero {
-            padding: 60px 20px;
-            text-align: center;
-            background: linear-gradient(180deg, rgba(11, 12, 16, 0) 0%, rgba(31, 40, 51, 0.4) 100%);
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: #fff;
-            line-height: 1.2;
-        }
-
-        .hero h1 span {
-            color: #ff4500;
-            text-shadow: 0 0 10px rgba(255, 69, 0, 0.5);
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: #c5a059;
-            max-width: 600px;
-            margin: 0 auto 40px auto;
-            font-weight: 500;
-        }
-
-        /* Container das Plataformas */
-        .platforms-container {
+        .hero-container {
+            flex: 1;
             display: flex;
-            justify-content: center;
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            flex-wrap: wrap;
-        }
-
-        /* Card de Cada Plataforma */
-        .card {
-            background: #1f2833;
-            border: 2px solid #45f3ff;
-            border-radius: 20px;
-            width: 340px;
-            padding: 30px;
-            text-align: center;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            transition: 0.5s;
-        }
-
-        .card:hover::before {
-            left: 100%;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(70, 243, 255, 0.3);
-        }
-
-        /* Cores específicas para Shopee */
-        .card.shopee {
-            border-color: #ee4d2d;
-        }
-        .card.shopee:hover {
-            box-shadow: 0 15px 30px rgba(238, 77, 45, 0.4);
-        }
-
-        /* Cores específicas para Mercado Livre */
-        .card.mercadolivre {
-            border-color: #fff159;
-        }
-        .card.mercadolivre:hover {
-            box-shadow: 0 15px 30px rgba(255, 241, 89, 0.3);
-        }
-
-        /* Estilização dos Logos */
-        .logo-box {
-            height: 80px;
-            display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 3rem;
             margin-bottom: 20px;
+            font-weight: 800;
         }
 
-        .shopee-badge {
-            background-color: #ee4d2d;
-            color: white;
-            font-weight: bold;
-            font-size: 1.8rem;
-            padding: 10px 25px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(238, 77, 45, 0.4);
-        }
+        h1 span { color: #ee4d2d; }
 
-        .ml-badge {
-            background-color: #fff159;
-            color: #2d3277;
-            font-weight: bold;
-            font-size: 1.6rem;
-            padding: 10px 20px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(255, 241, 89, 0.3);
-        }
-
-        .card h2 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            color: #fff;
-        }
-
-        .card p {
+        p {
+            font-size: 1.2rem;
             color: #a9b7c6;
-            font-size: 0.95rem;
-            margin-bottom: 25px;
-            line-height: 1.5;
+            margin-bottom: 40px;
+            line-height: 1.6;
         }
 
-        /* Botões Chamativos */
-        .btn {
+        .buttons-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn-enter {
             display: inline-block;
+            color: #fff;
             text-decoration: none;
-            padding: 15px 30px;
+            padding: 18px 40px;
             border-radius: 50px;
+            font-size: 1.2rem;
             font-weight: bold;
-            font-size: 1rem;
-            transition: all 0.3s;
-            cursor: pointer;
-            width: 100%;
+            transition: 0.3s;
         }
 
         .btn-shopee {
-            background: linear-gradient(135deg, #ff6533 0%, #ee4d2d 100%);
-            color: #fff;
-            box-shadow: 0 5px 15px rgba(238, 77, 45, 0.4);
+            background: #ee4d2d;
+            box-shadow: 0 5px 20px rgba(238, 77, 45, 0.4);
         }
 
         .btn-shopee:hover {
-            background: linear-gradient(135deg, #ee4d2d 0%, #ff6533 100%);
-            box-shadow: 0 8px 20px rgba(238, 77, 45, 0.6);
+            background: #ff6533;
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(238, 77, 45, 0.6);
         }
 
         .btn-ml {
-            background: linear-gradient(135deg, #fff580 0%, #fff159 100%);
-            color: #2d3277;
-            box-shadow: 0 5px 15px rgba(255, 241, 89, 0.3);
+            background: #fff159;
+            color: #333;
+            box-shadow: 0 5px 20px rgba(255, 241, 89, 0.2);
         }
 
         .btn-ml:hover {
-            background: linear-gradient(135deg, #fff159 0%, #fff580 100%);
-            box-shadow: 0 8px 20px rgba(255, 241, 89, 0.5);
+            background: #fff58f;
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 241, 89, 0.4);
         }
 
-        /* Seção Privado / Contato */
-        .pv-section {
-            max-width: 700px;
-            margin: 60px auto;
-            background: rgba(31, 40, 51, 0.6);
-            border: 1px dashed #66fcf1;
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-        }
-
-        .pv-section h3 {
-            color: #66fcf1;
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-
-        .pv-section p {
-            color: #c5a059;
-            margin-bottom: 20px;
-        }
-
-        .btn-pv {
-            background: transparent;
-            border: 2px solid #66fcf1;
-            color: #66fcf1;
-            width: auto;
-            padding: 12px 40px;
-        }
-
-        .btn-pv:hover {
-            background: #66fcf1;
-            color: #0b0c10;
-            box-shadow: 0 0 15px rgba(102, 252, 241, 0.5);
-        }
-
-        /* Rodapé */
         footer {
             text-align: center;
-            padding: 40px 20px;
-            color: #45a29e;
+            padding: 20px;
+            color: #444;
             font-size: 0.9rem;
             border-top: 1px solid #1f2833;
-        }
-
-        /* Responsividade para Celulares */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .platforms-container { gap: 20px; }
-            .card { width: 100%; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="primeira.html" class="logo-title">STARS <span>VENDAS</span> 🌟</a>
+        <a href="index.html" class="logo-title">STARS <span>VENDAS</span> 🌟</a>
     </header>
 
-    <section class="hero">
-        <h1>Os Melhores Achadinhos & Produtos <span>Em Um Só Lugar!</span></h1>
-        <p>Garimpamos a internet para trazer apenas o que realmente vale a pena, com o melhor preço e segurança total.</p>
+    <div class="hero-container">
+        <h1>Os Melhores Achadinhos da Internet</h1>
+        <p>Bem-vindo ao Stars Vendas! Escolha abaixo qual vitrine de ofertas você quer navegar para encontrar os melhores produtos com descontos exclusivos.</p>
         
-        <div class="platforms-container">
-            
-            <div class="card shopee">
-                <div class="logo-box">
-                    <div class="shopee-badge">Shopee</div>
-                </div>
-                <h2>Melhores Produtos da Shopee</h2>
-                <p>Confira a nossa seleção exclusiva de achadinhos, utilidades e novidades bombadas da Shopee!</p>
-                <a href="segunda.html" class="btn btn-shopee">Ver Produtos Shopee 🚀</a>
-            </div>
-
-            <div class="card mercadolivre">
-                <div class="logo-box">
-                    <div class="ml-badge">Mercado Livre</div>
-                </div>
-                <h2>Melhores Produtos do Mercado Livre</h2>
-                <p>Produtos com entrega ultra rápida, frete grátis e a máxima segurança do mercado selecionados para você.</p>
-                <a href="terceira.html" class="btn btn-ml">Ver Produtos Mercado Livre 🔥</a>
-            </div>
-
+        <div class="buttons-group">
+            <a href="segunda.html" class="btn-enter btn-shopee">Ofertas da Shopee 🛍️</a>
+            <a href="terceira.html" class="btn-enter btn-ml">Ofertas do Mercado Livre 📦</a>
         </div>
-    </section>
-
-    <section class="pv-section">
-        <h3>Procurando algo diferente ou específico?</h3>
-        <p>Se você quer um produto que não encontrou em nossas listas, é só me chamar direto no privado que eu acho para você!</p>
-        <a href="https://www.tiktok.com/@stars.vendas" target="_blank" class="btn btn-pv">Chamar no PV 💬</a>
-    </section>
+    </div>
 
     <footer>
-        <p>&copy; 2026 Stars Vendas. Todos os direitos reservados.</p>
+        &copy; 2026 Stars Vendas. Todos os direitos reservados.
     </footer>
 
 </body>
